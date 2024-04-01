@@ -1,0 +1,131 @@
+
+body{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   
+   min-height: 100vh;
+   
+    background-color:#000000 ;
+}
+.intro h1{
+    
+}
+.box
+{
+    position:relative;
+    width: 380px;
+    height: 420px;
+    background: #f9f9f9;
+    border-radius:8px;
+}
+.box form{
+    position:absolute;
+    inset: 4px;
+    background: #222;
+    padding: 50px 40px;
+    border-radius: 8px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+
+}
+.box form h2{
+    color: aliceblue;
+    font: weight 20px ;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+.box form .inputbox{
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+}
+
+.box form .inputbox input
+{
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background: transparent;
+    box-shadow: none;
+    color: #3a3f61;
+    z-index: 10;
+}
+.box form .inputbox span
+{
+    position: absolute;
+    left: 0;
+    padding: 20px 10px 10px;
+    color: #8f8f8f;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+
+}
+.box form .inputbox input:valid ~ span,
+.box form .inputbox input:focus ~ span
+{
+    color: bisque;
+    font-size: 0.75em;
+    transform: translateY(-43px);
+
+}
+
+.box form .inputbox i
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    transition:0.5s;
+}
+
+.box form .inputbox input:valid ~ i,
+.box form .inputbox input:focus ~ i
+{
+    height: 50px;
+}
+
+.box form .links {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.box form .links a{
+    color: #8f8f8f;
+    text-decoration: none;
+    }
+    .di{
+        align-items: center;
+        justify-content: center;
+        padding-left: 50px;
+        
+    }
+    a{
+        text-decoration: none;
+    }
+    .but{
+        width:80px;
+        text-decoration:none;
+        background: white;
+        color: white;
+        margin: 50px;
+        border: 1px solid white;
+        border-radius: 8px;
+        padding: 5px;
+        align-items: center;
+
+        
+    }
+    .but:hover{
+        background: pink;
+        transition: 0.5s;
+
+    }

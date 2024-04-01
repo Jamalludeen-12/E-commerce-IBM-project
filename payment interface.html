@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>E-commerce Store</title>
+      <style>
+    body{
+        background: #000000;
+        color: aliceblue;
+    }
+         .h
+        {
+            font-style: italic;
+            border: 1px solid #ccc;
+        }
+        .product-item {
+          border: 1px solid #ccc;
+          padding: 20px;
+          text-align: center;
+          border-radius: 8px;
+          
+        }
+        .Shopping-Cart{
+          border: 1px solid #ccc;
+          padding: 20px;
+          text-align: center;
+          border-radius: 8px;
+          
+        }
+         
+         
+        .product-item img {
+          max-width: 100%;
+          height: 300px;
+        }
+        button{
+            border-radius: 5px;
+            background-color: green;
+    
+        }
+        button:hover{
+           background-color: white;
+           
+           transition: 1s;
+        }
+      </style>
+    </head>
+    <body>
+        <header>
+            <div class="h"><h1><center>PAYMENT PAGE</center></h1>
+          
+        </header>
+<body>
+    
+    <center>
+    <form action="process_payment.php" method="post">
+        <h2>Select Payment Method:</h2>
+        <label>
+            <input type="radio" name="payment_method" value="credit_debit_card" required>
+            Credit Card / Debit Card
+        </label>
+        <label>
+            <input type="radio" name="payment_method" value="internet_banking" required>
+            Internet Banking
+        </label>
+        <label>
+            <input type="radio" name="payment_method" value="upi_transfer" required>
+            UPI Transfer
+        </label>
+
+        <div id="credit_debit_card_details" style="display:none;">
+            <h2>Credit Card / Debit Card Details:</h2>
+            <table border="0" cellpadding="5" cellspacing="5" align="center" >
+
+            <tr>
+           <td><label for="card_number">Card Number</label></td><td>:</td>            
+            <td><input type="text" id="card_number" name="card_number" required></td>
+            </tr>
+            
+            <tr>
+                <td><label for="card_holder">Card Holder Name</label></td><td>:</td>            
+                 <td><input type="text" id="card_holder" name="card_holder" required></td>
+            </tr>
+            
+                 <tr>
+                    <td><label for="expiry_date">Expiry date</label></td><td>:</td>            
+                     <td><input type="text" id="expiry_date" name="expiry_date" required></td>
+                 </tr>
+                 
+            <tr>
+                <td><label for="cvv">CVV</label></td><td>:</td>            
+                 <td><input type="text" id="cvv" name="cvv" required></td>
+                 </tr>
+            <tr>
+                <td colspan="3"> <button type="submit">Pay Now</button></td>
+            </tr>
+            </table>
+        </div>
+
+        <div id="internet_banking_details" style="display:none;">
+            
+            <table border="0" cellpadding="5" cellspacing="5" align="center" >
+                <h2>Internet Banking Details:</h2>
+           <tr>
+            <td><label for="bank_name">Select Bank</label></td><td>:</td>
+           <td> <select id="bank_name" name="bank_name">
+                <option value="Bank1">ICIC Bank</option>
+                <option value="Bank2">SBI Bank</option>
+                <option value="Bank3">IOB Bank</option>
+                <option value="Bank4">CUB Bank</option>
+                <option value="Bank5">HDFC Bank</option>
+                <option value="Bank6">KOTAK Bank</option>
+                <!-- Add more bank options as needed -->
+            </select></td>
+           </tr>
+           <tr>
+            <td colspan="3"> <button type="submit">Pay Now</button></td>
+        </tr>
+            </table></div>
+
+        <div id="upi_transfer_details" style="display:none;">
+            <table border="0" cellpadding="5" cellspacing="5" align="center" >
+            <h2>UPI Transfer Details</h2>
+            <tr>
+            <td><label for="upi_id">UPI ID</label></td><td>:</td>
+            <td><input type="text" id="upi_id" name="upi_id" required>
+            </td>
+            </tr>
+            <tr>
+                <td colspan="3"> <button type="submit">Pay Now</button></td>
+            </tr>
+            </table>
+        </div>
+
+         
+    </form>
+
+    <script>
+        // Show/hide payment method details based on the selected payment method
+        const paymentMethodRadioButtons = document.querySelectorAll('input[name="payment_method"]');
+        const paymentDetails = {
+            "credit_debit_card": "credit_debit_card_details",
+            "internet_banking": "internet_banking_details",
+            "upi_transfer": "upi_transfer_details",
+        };
+
+        paymentMethodRadioButtons.forEach(function (radio) {
+            radio.addEventListener('change', function () {
+                for (const method in paymentDetails) {
+                    document.getElementById(paymentDetails[method]).style.display = "none";
+                }
+                document.getElementById(paymentDetails[radio.value]).style.display = "block";
+            });
+        });
+    </script>
+    </center>
+</body>
+</html>
